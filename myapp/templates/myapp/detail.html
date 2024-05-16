@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.name }}</h2>
+<p>{{ object.description }}</p>
+<p><a href="{% url 'myapp:update' object.pk %}">Edit</a></p>
+<form action="{% url 'myapp:delete' object.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+{% endblock %}
